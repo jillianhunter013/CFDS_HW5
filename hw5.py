@@ -48,6 +48,26 @@
 #    following symptoms:
 #    ['fever', 'cough', 'anosmia']
 
+class Patient():
+
+    def __init__(self, name, symptoms):
+        self.name = name
+        self.symptoms = symptoms
+        self._tests = {}
+    
+    def add_test(self, test_name, test_result):
+        self._tests[test_name] = test_result
+
+    def has_covid(self):
+        if 'covid' in self._tests:
+            return 0.99 if self._tests['covid'] else 0.01
+        probability = 0.05
+        covid_symptoms = ['fever', 'cough', 'anosmia']
+        for symptom in covid_symptoms:
+            if symptom in self.symptoms:
+                probability += 0.1
+        return min(probability, 1.0)
+
 
 ######################
 
@@ -67,6 +87,28 @@
 # Create a method called "shuffle" that shuffles the cards randomly. 
 # Create a method called "draw" that will draw a single card and print the suit and value. When a card is drawn, the card should be removed from the deck.
 
+class Card():
+    def __init__(self, suit, value):
+        self.suit = suit
+        self.value = value
+class Deck():
+    def __init__(self):
+        suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+        values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+        self.cards = [Card(suit, value) for suit in suits for value in values]
+
+    def shuffle(self):
+        import random
+        random.shuffle(self.cards)
+
+    def draw(self):
+        if self.cards:
+            card = self.cards.pop()
+            print(f'Drawn card: {card.value} of {card.suit}')
+            return card
+        else:
+            print('No more cards in the deck.')
+            return None
 
 
 ###################
@@ -84,3 +126,50 @@
 
 # 3.3 Create a child class called "Circle" that inherits from "PlaneFigure" and has as parameters in the constructor "radius" (radius of the circle). Implement the abstract methods with the formula of the circle.
 
+from abc import ABC, abstractmethod
+
+class PlaneFigure(ABC):
+    @abstractmethod
+    def compute_perimeter(self):
+        pass
+
+    @abstractmethod
+    def compute_surface(self):
+        pass
+
+    
+class Triangle(PlaneFigure):    
+    def __init__(self, base, c1, c2, h):
+        self.base = base
+        self.c1 = c1
+        self.c2 = c2
+        self.h = h
+
+    def compute_perimeter(self):
+        return self.base + self.c1 + self.c2
+
+    def compute_surface(self):
+        return 0.5 * self.base * self.h
+    
+class Rectangle(PlaneFigure):
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def compute_perimeter(self):
+        return 2 * (self.a + self.b)
+
+    def compute_surface(self):
+        return self.a * self.b
+
+class Circle(PlaneFigure):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def compute_perimeter(self):
+        import math
+        return 2 * math.pi * self.radius
+
+    def compute_surface(self):
+        import math
+        return math.pi * self.radius ** 2
