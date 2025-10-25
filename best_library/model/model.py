@@ -1,20 +1,3 @@
-
-class Model():
-    def __init__(self, columns: list[int], target: list[int], hyperparameters: dict):
-        self._columns = columns
-        self._target = target
-        self._hyperparameters = hyperparameters
-        self.model = LogisticRegression(hyperparameters)
-    
-    def train(self, training_data_X, training_data_y):
-        self.model.fit(training_data_X, training_data_y)
-
-
-    def predict(self, df: pd.DataFrame) -> list[int]:
-        data_X = df.iloc[:, self._columns]
-        predictions = self.model.predict(data_X)
-        return predict_
-
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from typing import List, Optional, Type
