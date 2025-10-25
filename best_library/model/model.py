@@ -1,7 +1,6 @@
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
-from typing import List, Optional, Type
-import numpy as np
+from typing import List, Optional
 
 
 class Model():
