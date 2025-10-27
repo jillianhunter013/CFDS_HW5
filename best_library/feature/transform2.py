@@ -1,5 +1,5 @@
 import pandas as pd
-from .base_feature import BaseFeature
+from base import BaseFeature
 
 class AgeGroupFeature(BaseFeature):
 
