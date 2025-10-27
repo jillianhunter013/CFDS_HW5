@@ -1,4 +1,3 @@
-# my_diabetes_lib/features/base_feature.py
 from abc import ABC, abstractmethod
 import pandas as pd
 
