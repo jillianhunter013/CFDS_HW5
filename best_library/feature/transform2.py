@@ -1,4 +1,3 @@
-# my_diabetes_lib/features/transform2.py
 import pandas as pd
 from .base_feature import BaseFeature
 
