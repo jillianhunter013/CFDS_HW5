@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class RemoveNAPreprocessor:
     def __init__(self, dataframe: pd.DataFrame):
         self.dataframe = dataframe
