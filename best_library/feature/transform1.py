@@ -1,0 +1,13 @@
+# my_diabetes_lib/features/transform1.py
+import pandas as pd
+from .base_feature import BaseFeature
+
+class BMIFeature(BaseFeature):
+
+    def transform(self, df: pd.DataFrame) -> pd.DataFrame:
+        df = df.copy()
+        if {'weight', 'height'}.issubset(df.columns):
+            df['bmi'] = df['weight'] / ((df['height'] / 100) ** 2)
+        else:
+            raise KeyError("Columns 'weight' and 'height' required for BMIFeature.")
+        return df
