@@ -1,5 +1,5 @@
 # Test for hw5.py
-from best_library.hw5 import Patient, Deck, PlaneFigure, Rectangle, Triangle, Circle
+from best_library.hw5 import Patient, Deck, Rectangle, Triangle, Circle
 import math
 
 # Tests for exercise 1
