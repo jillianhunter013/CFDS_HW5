@@ -65,7 +65,7 @@ def test_plane_compute_surface():
     assert rectangle.compute_surface() == 24  # 4*6
 
     square = Circle(5)
-    assert square.compute_surface() == (math.pi)25  # pi * 5 * 2
+    assert square.compute_surface() == (math.pi)*25  # pi * 5 * 2
 
     triangle = Triangle(3, 4, 5, 6)
     assert triangle.compute_surface() == 9  # (3*6)/2
