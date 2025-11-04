@@ -42,3 +42,8 @@ def test_sum_general_int_list():
     assert sum_general_int_list([1, [2, [3, 4]], 5]) == 15
     assert sum_general_int_list([[[[10]]], 20, [30]]) == 60
     assert sum_general_int_list([]) == 0
+
+
+def test_sum_general_int_list_invalid_type():
+    with pytest.raises(ValueError):
+        sum_general_int_list([1, "Simba"])    
