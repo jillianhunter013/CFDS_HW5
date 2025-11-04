@@ -48,3 +48,24 @@ def test_deck_draw():
     drawn_card = deck.draw()
     assert len(deck.cards) == initial_count - 1  # Check that one card is removed
     assert drawn_card not in deck.cards  # Check that the drawn card is no longer in the deck
+
+# Tests for exercise 3
+def test_plane_figure_compute_perimeter():
+    rectangle = Rectangle(4, 6)
+    assert rectangle.compute_perimeter() == 20  # 2*(4+6)
+
+    square = Circle(5)
+    assert square.compute_perimeter() == 10*(math.pi) # 2 * pi * 5
+
+    triangle = Triangle(3, 4, 5, 6)
+    assert triangle.compute_perimeter() == 12  # 3+4+5
+
+def test_plane_compute_surface():
+    rectangle = Rectangle(4, 6)
+    assert rectangle.compute_surface() == 24  # 4*6
+
+    square = Circle(5)
+    assert square.compute_surface() == (math.pi)25  # pi * 5 * 2
+
+    triangle = Triangle(3, 4, 5, 6)
+    assert triangle.compute_surface() == 9  # (3*6)/2
