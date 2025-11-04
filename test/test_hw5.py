@@ -31,3 +31,20 @@ def test_patient_has_covid():
     patient5 = Patient("Eve", ["fever"])
     patient5.add_test("covid", False)
     assert patient5.has_covid() == 0.01  # negative test
+
+# Tests for exercise 2
+def test_deck_shuffle():
+    deck = Deck()
+    original_order = deck.cards.copy()
+    deck.shuffle()
+    shuffled_order = deck.cards
+    assert original_order != shuffled_order  # Check that the order has changed
+    for card in original_order: 
+        assert card in shuffled_order  # Check that all cards are still present
+
+def test_deck_draw():
+    deck = Deck()
+    initial_count = len(deck.cards)
+    drawn_card = deck.draw()
+    assert len(deck.cards) == initial_count - 1  # Check that one card is removed
+    assert drawn_card not in deck.cards  # Check that the drawn card is no longer in the deck
