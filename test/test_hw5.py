@@ -49,6 +49,12 @@ def test_deck_draw():
     assert len(deck.cards) == initial_count - 1  # Check that one card is removed
     assert drawn_card not in deck.cards  # Check that the drawn card is no longer in the deck
 
+def test_deck_draw_empty():
+    deck = Deck()
+    deck.cards = []  # Empty the deck
+    drawn_card = deck.draw()
+    assert drawn_card is None  # Should return None when drawing from an empty deck
+    
 # Tests for exercise 3
 def test_plane_figure_compute_perimeter():
     rectangle = Rectangle(4, 6)
