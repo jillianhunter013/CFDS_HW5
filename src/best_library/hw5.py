@@ -91,6 +91,7 @@ class Card():
     def __init__(self, suit, value):
         self.suit = suit
         self.value = value
+        
 class Deck():
     def __init__(self):
         suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
